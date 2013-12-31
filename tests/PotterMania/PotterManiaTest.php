@@ -28,36 +28,36 @@
 
 class PotterManiaTest extends PHPUnit_Framework_TestCase
 {
-//    public function testSimpleNonDiscount()
-//    {
-//        $this->assertEquals(8 * 2, PotterMania::price([1,1]));
-//        $this->assertEquals(8 * 3, PotterMania::price([1,1,1]));
-//        $this->assertEquals(8 * 6, PotterMania::price([1,1,1,1,1,1]));
-//    }
-//    
-//    public function testSimpleDiscount()
-//    {
-//        // calculate cost of set of some identical books
-//        // метод принимает данные о книгах в следующем формате:
-//        // [book_id, book_id, book_id_2]
-//        
-//        $this->assertEquals(8 * 1, PotterMania::price([1]));
-//        $this->assertEquals(8 * 2 * 0.95, PotterMania::price([1,2]));
-//        $this->assertEquals(8 * 3 * 0.9, PotterMania::price([1,2,3]));
-//        $this->assertEquals(8 * 4 * 0.8, PotterMania::price([1,2,3,4]));
-//        $this->assertEquals(8 * 5 * 0.75, PotterMania::price([1,2,3,4,5]));
-//    }
-//    
-//    public function testSeveralDiscount()
-//    {
-//        // calculate cost of set of different books
-//        // для набора разных книг
-//        $this->assertEquals(8 + (8 * 2 * 0.95), PotterMania::price([0, 0, 1]));
-//        $this->assertEquals(2 * (8 * 2 * 0.95), PotterMania::price([0, 0, 1, 1]));
-//        $this->assertEquals((8 * 4 * 0.8) + (8 * 2 * 0.95), PotterMania::price([0, 0, 1, 2, 2, 3]));
-//        $this->assertEquals(8 + (8 * 5 * 0.75), PotterMania::price([0, 1, 1, 2, 3, 4]));
-//    }
-//    
+    public function testSimpleNonDiscount()
+    {
+        $this->assertEquals(8 * 2, PotterMania::price([1,1]));
+        $this->assertEquals(8 * 3, PotterMania::price([1,1,1]));
+        $this->assertEquals(8 * 6, PotterMania::price([1,1,1,1,1,1]));
+    }
+    
+    public function testSimpleDiscount()
+    {
+        // calculate cost of set of some identical books
+        // метод принимает данные о книгах в следующем формате:
+        // [book_id, book_id, book_id_2]
+        
+        $this->assertEquals(8 * 1, PotterMania::price([1]));
+        $this->assertEquals(8 * 2 * 0.95, PotterMania::price([1,2]));
+        $this->assertEquals(8 * 3 * 0.9, PotterMania::price([1,2,3]));
+        $this->assertEquals(8 * 4 * 0.8, PotterMania::price([1,2,3,4]));
+        $this->assertEquals(8 * 5 * 0.75, PotterMania::price([1,2,3,4,5]));
+    }
+    
+    public function testSeveralDiscount()
+    {
+        // calculate cost of set of different books
+        // для набора разных книг
+        $this->assertEquals(8 + (8 * 2 * 0.95), PotterMania::price([0, 0, 1]));
+        $this->assertEquals(2 * (8 * 2 * 0.95), PotterMania::price([0, 0, 1, 1]));
+        $this->assertEquals((8 * 4 * 0.8) + (8 * 2 * 0.95), PotterMania::price([0, 0, 1, 2, 2, 3]));
+        $this->assertEquals(8 + (8 * 5 * 0.75), PotterMania::price([0, 1, 1, 2, 3, 4]));
+    }
+    
     
     public function testEdgeCases()
     {

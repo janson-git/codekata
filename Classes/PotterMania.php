@@ -7,26 +7,36 @@
 
 class PotterMania
 {
-    public static function price(array $ids)
+    public static function price(array $books)
     {
-        $price = 0;
+        // TODO: нам потребуется реализовать два алгоритма наборов: с максимально равномерными наборами (реализован)
+        // TODO: и с максимально длинными наборами + остатки (нужно реализовать)
+        //       реализуется циклом с array_unique() и удалением вытащенных значений из исходного массива,
+        //       пока не закончатся данные.
+
+        // TODO: затем запрашиваем стоимость по массиву книг от обоих и берём более выгодный.
+        //???
+        
+        $price1 = self::getTotalCost( self::costWithMinimalSets($books) );
+        $price2 = self::getTotalCost( self::costWithMaximalSets($books) );
+
+        return min([$price1, $price2]);
+    }
+    
+    
+    private static function costWithMinimalSets($books)
+    {
         // получаем список книг, по которым высчитываем цену.
         // [id => count, id => count]
-        $books = array_count_values($ids);
-
+        $books = array_count_values($books);
         
-        // FIXME: DEBUG
-        var_dump('BOOKS', $books);
-        echo "DEBUG DUMP in file " . __FILE__ . " line " . __LINE__ . ";\n";
-
-
         // получим максимальное значение в массиве:
-        $numberOfBaskets = max($books);
+        $numberOfBaskets = max($books) - 1;
         
         $baskets = [];
         $n = 0;
         foreach ($books as $bookId => $count) {
-            for ($i = 0; $i <= $count; $i++) {
+            for ($i = 0; $i < $count; $i++) {
                 if (!isset($baskets[$n])) {
                     $baskets[$n] = [];
                 }
@@ -38,12 +48,59 @@ class PotterMania
             }
         }
 
+        return $baskets;
+    }
+    
+    
+    private static function costWithMaximalSets($books)
+    {
+        $price = 0;
+        // получим максимальное значение в массиве:
+        $baskets = [];
 
-        // FIXME: DEBUG
-//        var_dump($books, $numberOfBaskets);
-        var_dump($baskets);
-        echo "DEBUG DUMP in file " . __FILE__ . " line " . __LINE__ . ";\n";
-exit;
+        while(!empty($books)) {
+            $unique = array_unique($books);
+            array_push($baskets, $unique);
+            // удаляем взятые значения из исходного массива
+            foreach ($unique as $val) {
+                $keys = array_search($val, $books);
+                if (is_array($keys)) {
+                    $key = array_pop($keys);
+                } else {
+                    $key = $keys;
+                }
+                unset($books[$key]);
+            }
+        }
+        
+        return $baskets;
+    }
+    
+    private static function getTotalCost($baskets)
+    {
+        $price = 0;
+        
+        // считаем общую цену:
+        foreach ($baskets as $basket) {
+            $counter = count($basket);
+            switch ($counter) {
+                case 1:
+                    $price += 8;
+                    break;
+                case 2:
+                    $price += 8 * 2 * 0.95;
+                    break;
+                case 3:
+                    $price += 8 * 3 * 0.90;
+                    break;
+                case 4:
+                    $price += 8 * 4 * 0.8;
+                    break;
+                case 5:
+                    $price += 8 * 5 * 0.75;
+                    break;
+            }
+        }
 
         return $price;
     }
