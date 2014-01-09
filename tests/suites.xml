@@ -3,5 +3,8 @@
         <testsuite name="PotterMania Tests Suite">
             <directory>PotterMania</directory>
         </testsuite>
+        <testsuite name="RomanNumerals Tests Suite">
+            <directory>RomanNumerals</directory>
+        </testsuite>
     </testsuites>
 </phpunit>
