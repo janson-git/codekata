@@ -1,9 +1,4 @@
 <?php
-/**
- * @author Ivan Lisitskiy ivan.li@livetex.ru
- * 12/31/13 1:15 PM
- */
-
 
 class PotterMania
 {
