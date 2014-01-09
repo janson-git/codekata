@@ -35,7 +35,7 @@ class RomanNumeralsTest extends PHPUnit_Framework_TestCase
             [94, 'XCIV'],
             [1999, 'MCMXCIX'],
             [999, 'CMXCIX'],
-            [58, 'LVIII'],
+            [888, 'DCCCLXXXVIII']
         ];
     }
-} 
+}

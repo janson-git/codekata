@@ -13,12 +13,12 @@ class Romans
     
     public static function convertDigit($number, $rank = null)
     {
-        // рекурсивно получаем разряды числа и каждый из них преобразуем в римское число
         if (is_null($rank)) {
             if ($number > 3000) {
                 throw new Exception("3000 is maximum digit to romans convert");
             }
-            
+
+            // recursive convert digits of given number to romans
             $str = '';
             $digits = str_split((string) $number);
             $count = count($digits);
@@ -29,19 +29,19 @@ class Romans
         } else {
             switch ($rank) {
                 case 4:
-                    // преобразуем тысячи
+                    // thousands
                     return str_pad('', $number, 'M');
                     break;
                 case 3:
-                    // преобразуем сотни
+                    // houndreds
                     return self::converter($number, self::CENTURY, self::FIVE_CENTURIES, self::MILLENIUM);
                     break;
                 case 2:
-                    // преобразуем десятки;
+                    // decades
                     return self::converter($number, self::DECADE, self::FIFTY, self::CENTURY);
                     break;
                 case 1:
-                    // преобразуем единицы;
+                    // units
                     return self::converter($number, self::ONE, self::FIVE, self::DECADE);
                     break;
                 default:
