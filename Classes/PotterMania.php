@@ -9,14 +9,8 @@ class PotterMania
 {
     public static function price(array $books)
     {
-        // TODO: нам потребуется реализовать два алгоритма наборов: с максимально равномерными наборами (реализован)
-        // TODO: и с максимально длинными наборами + остатки (нужно реализовать)
-        //       реализуется циклом с array_unique() и удалением вытащенных значений из исходного массива,
-        //       пока не закончатся данные.
-
-        // TODO: затем запрашиваем стоимость по массиву книг от обоих и берём более выгодный.
-        //???
-        
+        // реализуем два алгоритма для наборов: с максимально равномерными наборами
+        // и с максимально длинными возможными наборами + остатки вне наборов
         $price1 = self::getTotalCost( self::costWithMinimalSets($books) );
         $price2 = self::getTotalCost( self::costWithMaximalSets($books) );
 
@@ -54,7 +48,6 @@ class PotterMania
     
     private static function costWithMaximalSets($books)
     {
-        $price = 0;
         // получим максимальное значение в массиве:
         $baskets = [];
 

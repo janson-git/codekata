@@ -1,9 +1,4 @@
 <?php
-/**
- * @author Ivan Lisitskiy ivan.li@livetex.ru
- * 12/31/13 1:16 PM
- */
-
 
 //One copy of any of the five books costs 8 EUR. If, however, you buy two different books from the series, 
 // you get a 5% discount on those two books. If you buy 3 different books, you get a 10% discount. 
