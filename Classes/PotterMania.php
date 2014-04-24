@@ -1,5 +1,7 @@
 <?php
 
+// 
+
 class PotterMania
 {
     public static function price(array $books)
