@@ -6,5 +6,14 @@
         <testsuite name="RomanNumerals Tests Suite">
             <directory>RomanNumerals</directory>
         </testsuite>
+        <testsuite name="NumberToString Tests Suite">
+            <directory>NumberToString</directory>
+        </testsuite>
+        <testsuite name="Args Tests Suite">
+            <directory>Args</directory>
+        </testsuite>
+        <testsuite name="DataMuning Tests Suite">
+            <directory>DataMuning</directory>
+        </testsuite>
     </testsuites>
 </phpunit>
